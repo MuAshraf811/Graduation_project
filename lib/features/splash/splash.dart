@@ -14,15 +14,12 @@ class _AppSplashScreenState extends State<AppSplashScreen>
   late AnimationController _splashController;
   @override
   void initState() {
-    _splashController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 8)
-    );
-    Future.delayed(const Duration(seconds: 8),
-        () {
+    _splashController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 8));
+    Future.delayed(const Duration(seconds: 8), () {
       Navigator.of(context)
           .pushReplacement(MaterialPageRoute(builder: (context) {
-        return const OnBordingScreen() ;
+        return  OnBordingScreen();
       }));
     });
     super.initState();
@@ -59,7 +56,7 @@ class _AppSplashScreenState extends State<AppSplashScreen>
               ),
               const SizedBox(height: 32),
               const Text(
-                'DocDoc App',
+                'Welcomt to IKSIRS',
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
