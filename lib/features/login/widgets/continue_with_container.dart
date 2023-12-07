@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ContinueWithContainer extends StatelessWidget {
-  const ContinueWithContainer(
-      {super.key,
-      required this.name,
-      required this.svgImagePath,
-      required this.space});
+  const ContinueWithContainer({
+    super.key,
+    required this.name,
+    required this.svgImagePath,
+    required this.space,
+  });
   final String svgImagePath;
   final String name;
   final double space;
@@ -19,7 +20,7 @@ class ContinueWithContainer extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(13),
         border: Border.all(
-          color: Colors.teal,
+          color: Colors.grey.withOpacity(0.6),
           width: 1,
         ),
       ),

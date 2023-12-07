@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/extensions/context_extensions.dart';
 import 'package:graduation_project/features/login/custom_path.dart';
 import 'package:graduation_project/features/login/widgets/continue_with_container.dart';
 import 'package:graduation_project/features/login/widgets/custom_button.dart';
 import 'package:graduation_project/features/login/widgets/custom_text_form_field.dart';
+import 'package:graduation_project/features/register/register_view.dart';
 
 class LoginView extends StatelessWidget {
   LoginView({super.key});
@@ -57,6 +59,7 @@ class LoginView extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 CustomTextFormFiels(
+                  horizontalPadding: 4,
                   validator: _validateEmail,
                   hintText: 'example@email.com',
                   contentHorizontalPadding: 12,
@@ -66,6 +69,7 @@ class LoginView extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 CustomTextFormFiels(
+                  horizontalPadding: 4,
                   validator: _validatePassWord,
                   hintText: 'enter your password',
                   contentHorizontalPadding: 12,
@@ -109,7 +113,9 @@ class LoginView extends StatelessWidget {
                         ),
                       ),
                       TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.customPush(RegisterView());
+                          },
                           child: const Text(
                             'Register',
                             style: TextStyle(
@@ -157,6 +163,7 @@ class LoginView extends StatelessWidget {
                   svgImagePath: 'images/Svgs/facebook-3-logo-svg-vector.svg',
                   space: 30,
                 ),
+                const SizedBox(height: 16),
               ],
             ),
           ),

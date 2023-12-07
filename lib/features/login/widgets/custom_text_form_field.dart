@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/constants/colors.dart';
 
 class CustomTextFormFiels extends StatelessWidget {
   const CustomTextFormFiels({
@@ -10,6 +11,7 @@ class CustomTextFormFiels extends StatelessWidget {
     required this.contentVerticalPadding,
     this.obsecureText = false,
     required this.validator,
+    required this.horizontalPadding
   });
   final String hintText;
   final IconData suffixIcon;
@@ -18,6 +20,7 @@ class CustomTextFormFiels extends StatelessWidget {
   final double contentVerticalPadding;
   final bool obsecureText;
   final String? Function(String?)? validator;
+  final double horizontalPadding;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,38 +29,37 @@ class CustomTextFormFiels extends StatelessWidget {
         controller: controller,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         obscureText: obsecureText,
-        
         validator: validator,
-        cursorColor: Colors.teal,
+        cursorColor: ConstantColors.appMainColor,
         decoration: InputDecoration(
           hintText: hintText,
           contentPadding: EdgeInsets.symmetric(
               horizontal: contentHorizontalPadding,
               vertical: contentVerticalPadding),
-          suffixIcon: Icon(suffixIcon, color: Colors.teal),
+          suffixIcon: Icon(suffixIcon, color: ConstantColors.appMainColor),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: const BorderSide(
-              color: Colors.teal,
+              color: ConstantColors.appMainColor,
               width: 1.3,
             ),
           ),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: const BorderSide(
-                color: Colors.teal,
+                color: ConstantColors.appMainColor,
               )),
           disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
             borderSide: const BorderSide(
-              color: Colors.teal,
+              color: ConstantColors.appMainColor,
               width: 1.3,
             ),
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
             borderSide: const BorderSide(
-              color: Colors.teal,
+              color: ConstantColors.appMainColor,
               width: 1.3,
             ),
           ),

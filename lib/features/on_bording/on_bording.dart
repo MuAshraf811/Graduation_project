@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/constants/colors.dart';
+import 'package:graduation_project/core/extensions/context_extensions.dart';
+import 'package:graduation_project/features/login/login_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OnBordingScreen extends StatelessWidget {
-  OnBordingScreen({super.key});
-  final PageController controller = PageController();
+import '../login/custom_path.dart';
+
+class OnBordingScreen extends StatefulWidget {
+  const OnBordingScreen({super.key});
+
   static const List<String> images = [
     'images/on_boarding/prescription.png',
     'images/on_boarding/Ai_aid.png',
@@ -19,148 +24,184 @@ class OnBordingScreen extends StatelessWidget {
     'Features like suggestions and GPT powered chats to ask for advice and questions',
     'Chat with doctors and get advice from them around the clock. You can revise and check you medicines.'
   ];
+
+  @override
+  State<OnBordingScreen> createState() => _OnBordingScreenState();
+}
+
+class _OnBordingScreenState extends State<OnBordingScreen> {
+  late PageController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = PageController();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            width: MediaQuery.sizeOf(context).width,
-            height: MediaQuery.sizeOf(context).height,
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                  Colors.teal,
-                  Colors.teal,
-                ])),
-          ),
-          Positioned(
-            top: 80,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: SizedBox(
-                height: 450,
-                width: MediaQuery.sizeOf(context).width,
-                child: PageView.builder(
-                  controller: controller,
-                  itemCount: 3,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 420,
-                          height: 250,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              fit: BoxFit.contain,
-                              image: AssetImage(
-                                images[index],
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Container(
+              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height,
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                    ConstantColors.appMainColor,
+                    ConstantColors.appMainColor,
+                  ])),
+            ),
+            Positioned(
+              top: 80,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: SizedBox(
+                  height: 450,
+                  width: MediaQuery.sizeOf(context).width,
+                  child: PageView.builder(
+                    controller: _controller,
+                    itemCount: 3,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 420,
+                            height: 250,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                fit: BoxFit.contain,
+                                image: AssetImage(
+                                  OnBordingScreen.images[index],
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 32,
-                        ),
-                        Text(
-                          textAlign: TextAlign.center,
-                          title[index],
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
+                          const SizedBox(
+                            height: 32,
                           ),
-                        ),
-                        const SizedBox(
-                          height: 32,
-                        ),
-                        Text(
-                          textAlign: TextAlign.center,
-                          description[index],
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
+                          Text(
+                            textAlign: TextAlign.center,
+                            OnBordingScreen.title[index],
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        )
-                      ],
-                    );
-                  },
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 75,
-            left: 32,
-            child: SmoothPageIndicator(
-              controller: controller,
-              count: 3,
-              axisDirection: Axis.horizontal,
-              effect: const WormEffect(
-                activeDotColor: Colors.white,
-                dotColor: Colors.white60,
-                dotWidth: 14,
-                dotHeight: 6,
-                type: WormType.thin,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 70,
-            right: 20,
-            child: Container(
-              width: 64,
-              height: 32,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(24),
-                ),
-              ),
-              child: const Center(
-                child: Text(
-                  'Next',
-                  style: TextStyle(
-                    color: Colors.teal,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
+                          const SizedBox(
+                            height: 32,
+                          ),
+                          Text(
+                            textAlign: TextAlign.center,
+                            OnBordingScreen.description[index],
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                            ),
+                          )
+                        ],
+                      );
+                    },
                   ),
                 ),
               ),
             ),
-          ),
-          Positioned(
-            top: 48,
-            right: 20,
-            child: Container(
-              width: 64,
-              height: 32,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.white60,
-                  width: 1.5,
-                ),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(24),
+            Positioned(
+              bottom: 75,
+              left: 32,
+              child: SmoothPageIndicator(
+                controller: _controller,
+                count: 3,
+                axisDirection: Axis.horizontal,
+                effect: const WormEffect(
+                  activeDotColor: Colors.white,
+                  dotColor: Colors.white60,
+                  dotWidth: 14,
+                  dotHeight: 6,
+                  type: WormType.thin,
                 ),
               ),
-              child: const Center(
-                child: Text(
-                  'Skip',
-                  style: TextStyle(
+            ),
+            Positioned(
+              bottom: 70,
+              right: 20,
+              child: InkWell(
+                onTap: () {
+                  if (_controller.page == 0 || _controller.page == 1) {
+                    _controller.nextPage(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.linear);
+                  } else {
+                    context.customPushReplaceMent(LoginView());
+                  }
+                },
+                child: Container(
+                  width: 64,
+                  height: 32,
+                  decoration: const BoxDecoration(
                     color: Colors.white,
-                    fontSize: 15,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(24),
+                    ),
                   ),
+                  child: const Center(
+                      child: Text(
+                    'Next',
+                    style: TextStyle(
+                        color: Colors.teal,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  )),
                 ),
               ),
             ),
-          )
-        ],
+            Positioned(
+              top: 48,
+              right: 20,
+              child: InkWell(
+                onTap: () {
+                  context.customPushReplaceMent(LoginView());
+                },
+                child: Container(
+                  width: 64,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white60,
+                      width: 1.5,
+                    ),
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(24),
+                    ),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Skip',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
