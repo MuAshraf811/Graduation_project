@@ -182,13 +182,15 @@ class RegisterView extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const ContinueWithContainer(
+                  ContinueWithContainer(
+                    onTap: () {},
                     name: 'Continue with Google',
                     svgImagePath: 'images/Svgs/google-icon-logo-svg-vector.svg',
                     space: 48,
                   ),
                   const SizedBox(height: 8),
-                  const ContinueWithContainer(
+                  ContinueWithContainer(
+                    onTap: () {},
                     name: 'Continue with Facebook',
                     svgImagePath: 'images/Svgs/facebook-3-logo-svg-vector.svg',
                     space: 30,

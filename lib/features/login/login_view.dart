@@ -152,13 +152,15 @@ class LoginView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
-                const ContinueWithContainer(
+                 ContinueWithContainer(
+                  onTap: (){},
                   name: 'Continue with Google',
                   svgImagePath: 'images/Svgs/google-icon-logo-svg-vector.svg',
                   space: 48,
                 ),
                 const SizedBox(height: 12),
-                const ContinueWithContainer(
+                 ContinueWithContainer(
+                  onTap: (){},
                   name: 'Continue with Facebook',
                   svgImagePath: 'images/Svgs/facebook-3-logo-svg-vector.svg',
                   space: 30,
