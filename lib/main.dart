@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/constants/colors.dart';
 import 'package:graduation_project/features/on_bording/on_bording.dart';
-import 'package:graduation_project/features/register/otp.dart';
-import 'package:graduation_project/features/register/phone_number_view.dart';
-import 'package:graduation_project/features/register/register_view.dart';
+import 'package:graduation_project/features/settings/presentaion/settings_view.dart';
 
 void main() {
   runApp(const DocDoc());
@@ -23,7 +21,8 @@ class DocDoc extends StatelessWidget {
           )),
       home: //RegisterView(),
           // Otp(),
-          const OnBordingScreen(),
+          const SettingsView(),
+      //OnBordingScreen(),
     );
   }
 }

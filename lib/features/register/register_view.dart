@@ -4,7 +4,6 @@ import 'package:graduation_project/features/login/login_view.dart';
 import 'package:graduation_project/features/login/widgets/continue_with_container.dart';
 import 'package:graduation_project/features/login/widgets/custom_button.dart';
 import 'package:graduation_project/features/login/widgets/custom_text_form_field.dart';
-import 'package:graduation_project/features/register/otp.dart';
 import 'package:graduation_project/features/register/phone_number_view.dart';
 import 'widgets/progress_stepper.dart';
 

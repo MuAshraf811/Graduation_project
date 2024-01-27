@@ -8,8 +8,7 @@ class HomePageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
+      body: Column(children: [
         const SizedBox(height: 48),
         CarouselSlider(
           options: CarouselOptions(
@@ -58,8 +57,12 @@ class HomePageView extends StatelessWidget {
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.access_alarm),
-                label: 'appiontments',
+                icon: Icon(Icons.shopping_bag),
+                label: 'cart',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.search),
+                label: 'Search',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.settings),
