@@ -22,12 +22,12 @@ class ProgressStepper extends StatelessWidget {
           type: StepperType.horizontal,
           steps: [
             Step(
-              title: const Text('Registeration'),
+              title: const Text('Create account'),
               content: const Text('Create youraccount'),
               isActive: isFirstStepAcctive,
             ),
             Step(
-              title: const Text('Phone number'),
+              title: const Text(' phone number'),
               content: const Text('Enter your mobile number'),
               isActive: isSecondStepAcctive,
             ),

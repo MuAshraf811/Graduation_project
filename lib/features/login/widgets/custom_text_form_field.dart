@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:graduation_project/core/constants/colors.dart';
 
 class CustomTextFormFiels extends StatelessWidget {
-  const CustomTextFormFiels({
-    super.key,
-    required this.hintText,
-    required this.suffixIcon,
-    required this.controller,
-    required this.contentHorizontalPadding,
-    required this.contentVerticalPadding,
-    this.obsecureText = false,
-    required this.validator,
-    required this.horizontalPadding
-  });
+  const CustomTextFormFiels(
+      {super.key,
+      required this.hintText,
+      required this.suffixIcon,
+      required this.controller,
+      required this.contentHorizontalPadding,
+      required this.contentVerticalPadding,
+      this.obsecureText = false,
+      required this.validator,
+      required this.horizontalPadding});
   final String hintText;
   final IconData suffixIcon;
   final TextEditingController controller;
@@ -38,7 +37,7 @@ class CustomTextFormFiels extends StatelessWidget {
               vertical: contentVerticalPadding),
           suffixIcon: Icon(suffixIcon, color: ConstantColors.appMainColor),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(8),
             borderSide: const BorderSide(
               color: ConstantColors.appMainColor,
               width: 1.3,

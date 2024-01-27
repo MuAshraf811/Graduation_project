@@ -4,7 +4,6 @@ import 'package:graduation_project/core/extensions/context_extensions.dart';
 import 'package:graduation_project/features/login/login_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../login/custom_path.dart';
 
 class OnBordingScreen extends StatefulWidget {
   const OnBordingScreen({super.key});

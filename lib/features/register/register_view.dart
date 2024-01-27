@@ -3,16 +3,14 @@ import 'package:graduation_project/core/extensions/context_extensions.dart';
 import 'package:graduation_project/features/login/login_view.dart';
 import 'package:graduation_project/features/login/widgets/continue_with_container.dart';
 import 'package:graduation_project/features/login/widgets/custom_button.dart';
-
 import 'package:graduation_project/features/login/widgets/custom_text_form_field.dart';
-
-import 'widgets/gender_radio.dart';
+import 'package:graduation_project/features/register/otp.dart';
+import 'package:graduation_project/features/register/phone_number_view.dart';
 import 'widgets/progress_stepper.dart';
 
 class RegisterView extends StatelessWidget {
   RegisterView({super.key});
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController secondNameController = TextEditingController();
+
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
@@ -31,47 +29,13 @@ class RegisterView extends StatelessWidget {
               key: _formKey,
               child: Column(
                 children: [
+                  //const SizedBox(height: 6),
                   const ProgressStepper(
                     isFirstStepAcctive: true,
                     isSecondStepAcctive: false,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: CustomTextFormFiels(
-                          hintText: 'First name',
-                          horizontalPadding: 4,
-                          suffixIcon: Icons.person,
-                          contentHorizontalPadding: 8,
-                          contentVerticalPadding: 16,
-                          validator: (p0) {
-                            if (p0!.isEmpty) {
-                              return 'this field shouldn\'t be empty';
-                            }
-                            return null;
-                          },
-                          controller: firstNameController,
-                        ),
-                      ),
-                      Expanded(
-                        child: CustomTextFormFiels(
-                          horizontalPadding: 4,
-                          contentHorizontalPadding: 8,
-                          contentVerticalPadding: 16,
-                          controller: secondNameController,
-                          validator: (p0) {
-                            if (p0!.isEmpty) {
-                              return 'this field shouldn\'t be empty';
-                            }
-                            return null;
-                          },
-                          suffixIcon: Icons.person_outline_rounded,
-                          hintText: 'Second Name',
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
+
+                  const SizedBox(height: 24),
                   CustomTextFormFiels(
                     horizontalPadding: 4,
                     contentHorizontalPadding: 12,
@@ -88,7 +52,7 @@ class RegisterView extends StatelessWidget {
                     suffixIcon: Icons.email_outlined,
                     hintText: 'Enter your Email',
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 12),
                   CustomTextFormFiels(
                     horizontalPadding: 4,
                     contentHorizontalPadding: 12,
@@ -103,9 +67,9 @@ class RegisterView extends StatelessWidget {
                       return null;
                     },
                     suffixIcon: Icons.remove_red_eye_outlined,
-                    hintText: 'Enter your password',
+                    hintText: 'Enter password',
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 12),
                   CustomTextFormFiels(
                     horizontalPadding: 4,
                     contentHorizontalPadding: 12,
@@ -121,10 +85,10 @@ class RegisterView extends StatelessWidget {
                       return null;
                     },
                     suffixIcon: Icons.remove_red_eye_outlined,
-                    hintText: 'confirm your password',
+                    hintText: 'confirm password',
                   ),
                   const SizedBox(height: 4),
-                  const GenderRadio(),
+                  // const GenderRadio(),
                   Padding(
                     padding: const EdgeInsets.only(left: 16),
                     child: Row(
@@ -151,10 +115,11 @@ class RegisterView extends StatelessWidget {
                       ],
                     ),
                   ),
+                  const SizedBox(height: 12),
                   CustomButton(
                       text: 'Sign Up',
                       onTap: () {
-                        context.customPushReplaceMent(LoginView());
+                        context.customPushReplaceMent(const PhoneNumberView());
                       }),
                   const SizedBox(height: 8),
                   Padding(
