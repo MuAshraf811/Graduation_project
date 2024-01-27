@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class UpperProfileWidget extends StatelessWidget {
@@ -25,7 +24,9 @@ class UpperProfileWidget extends StatelessWidget {
                 Text(
                   'Muhammed Ashraf ',
                   style: TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.w700),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
                 Text(
                   '01002011850',
