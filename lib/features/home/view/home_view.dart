@@ -8,6 +8,46 @@ class HomePageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 55,
+        automaticallyImplyLeading: false,
+        title: TextFormField(
+          autocorrect: true,
+          decoration: const InputDecoration(
+            labelText: 'Search ',
+            labelStyle: TextStyle(
+              color: Colors.grey,
+            ),
+            prefixIcon: Icon(
+              Icons.search_rounded,
+              color: Colors.grey,
+            ),
+            constraints: BoxConstraints(
+              maxHeight: 44,
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(4)),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(4)),
+            ),
+          ),
+        ),
+        actions: [
+          Padding(
+              padding: const EdgeInsets.only(right: 12),
+              child: InkWell(
+                onTap: () {},
+                child: const ImageIcon(
+                  size: 35,
+                  color: ConstantColors.appMainColor,
+                  AssetImage(
+                    'images/other/chat_icon.png',
+                  ),
+                ),
+              )),
+        ],
+      ),
       body: Column(children: [
         const SizedBox(height: 48),
         CarouselSlider(
@@ -57,12 +97,12 @@ class HomePageView extends StatelessWidget {
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_bag),
-                label: 'cart',
-              ),
-              BottomNavigationBarItem(
                 icon: Icon(Icons.search),
                 label: 'Search',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_bag),
+                label: 'cart',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.settings),
