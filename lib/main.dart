@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/constants/colors.dart';
+import 'package:graduation_project/features/home/view/home_view.dart';
 import 'package:graduation_project/features/on_bording/on_bording.dart';
-
+import 'package:graduation_project/features/settings/presentaion/settings_view.dart';
 
 void main() {
   runApp(const DocDoc());
@@ -19,10 +20,9 @@ class DocDoc extends StatelessWidget {
           colorScheme: const ColorScheme.light(
             primary: ConstantColors.appMainColor,
           )),
-      home: //RegisterView(),
-          // Otp(),
-          const //SettingsView(),
-          OnBordingScreen(),
+      home: // const SettingsView(),
+          //OnBordingScreen(),
+          const HomePageView(),
     );
   }
 }
