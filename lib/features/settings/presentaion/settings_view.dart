@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/constants/colors.dart';
+import 'package:graduation_project/core/theme/cubits/theme_cubit.dart';
+import 'widgets/theme_switch.dart';
 import 'widgets/upper_profile_widget.dart';
 
 class SettingsView extends StatelessWidget {
@@ -7,7 +10,6 @@ class SettingsView extends StatelessWidget {
   static const _listTileTitles = [
     'Account',
     'Notifications',
-    'Theme',
     'Language',
     'payment ',
     'Help & Support',
@@ -17,7 +19,6 @@ class SettingsView extends StatelessWidget {
   static const _titlesIcon = [
     Icons.account_box,
     Icons.notifications,
-    Icons.light_mode,
     Icons.language,
     Icons.money,
     Icons.help_center,
@@ -27,7 +28,6 @@ class SettingsView extends StatelessWidget {
   static const _iconsColor = [
     Colors.grey,
     Colors.redAccent,
-    Colors.black,
     Color.fromARGB(255, 21, 117, 195),
     Colors.green,
     Color.fromARGB(255, 6, 113, 201),
@@ -43,6 +43,8 @@ class SettingsView extends StatelessWidget {
           children: [
             const SizedBox(height: 32),
             const UpperProfileWidget(),
+            const SizedBox(height: 16),
+            const ThemeSwitch(),
             Expanded(
               child: ListView.builder(
                 itemBuilder: (context, index) {
@@ -85,3 +87,4 @@ class SettingsView extends StatelessWidget {
     );
   }
 }
+
