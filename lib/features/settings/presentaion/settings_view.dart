@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/constants/colors.dart';
-import 'package:graduation_project/core/theme/cubits/theme_cubit.dart';
 import 'widgets/theme_switch.dart';
 import 'widgets/upper_profile_widget.dart';
-
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
   static const _listTileTitles = [
