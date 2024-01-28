@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/constants/colors.dart';
-
 import 'widgets/upper_profile_widget.dart';
 
 class SettingsView extends StatelessWidget {
@@ -10,8 +9,8 @@ class SettingsView extends StatelessWidget {
     'Notifications',
     'Theme',
     'Language',
-    'payment plan',
-    'Help Centre',
+    'payment ',
+    'Help & Support',
     'Rate Us',
     'LogOut'
   ];
@@ -49,7 +48,19 @@ class SettingsView extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return InkWell(
                     splashColor: ConstantColors.appMainColor,
-                    onTap: () {},
+                    onTap: () {
+                      switch (index) {
+                        case 0:
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                        case 5:
+                        case 6:
+                        case 7:
+                        default:
+                      }
+                    },
                     child: ListTile(
                       leading: Icon(
                         _titlesIcon[index],
