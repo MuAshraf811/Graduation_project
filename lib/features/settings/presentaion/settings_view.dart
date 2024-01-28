@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:graduation_project/core/constants/colors.dart';
 import 'widgets/theme_switch.dart';
 import 'widgets/upper_profile_widget.dart';
+
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
   static const _listTileTitles = [
@@ -38,10 +39,13 @@ class SettingsView extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
-            const SizedBox(height: 32),
+            const SizedBox(height: 28),
             const UpperProfileWidget(),
-            const SizedBox(height: 16),
-            const ThemeSwitch(),
+            const SizedBox(height: 14),
+            const SizedBox(
+              height: 30,
+              child: ThemeSwitch(),
+            ),
             Expanded(
               child: ListView.builder(
                 itemBuilder: (context, index) {
@@ -84,4 +88,3 @@ class SettingsView extends StatelessWidget {
     );
   }
 }
-
