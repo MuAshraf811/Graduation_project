@@ -7,13 +7,12 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const CutomAppBarSearch(),
-        centerTitle: true, 
-        elevation: 2, 
-        
-        
-      ) ,
+        centerTitle: true,
+        elevation: 2,
+      ),
       body: const SizedBox.shrink(),
     );
   }

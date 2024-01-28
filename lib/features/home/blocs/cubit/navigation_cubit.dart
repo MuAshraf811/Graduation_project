@@ -2,14 +2,21 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 part 'navigation_state.dart';
 
-class NavigationCubit extends Cubit<NavigationState> {
-  int index = 1;
-  NavigationCubit() : super(NavigationInitial());
+class NavigationCubit extends Cubit<int> {
+  int cubitIndex = 1;
+  NavigationCubit() : super(0);
 
   changeIndex(int target) {
-    index = target;
-    emit(NavigationStateChanged());
+    cubitIndex = target;
+    if (kDebugMode) {
+      print('Index in cubit has changed');
+    }
+    emit(target);
+    if (kDebugMode) {
+      print('State has been emited');
+    }
   }
 }

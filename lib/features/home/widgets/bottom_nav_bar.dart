@@ -7,9 +7,9 @@ import '../../../core/constants/colors.dart';
 class BottomNavBarWidget extends StatelessWidget {
   const BottomNavBarWidget({
     super.key,
-    
+    required this.state
   });
-  
+  final int state;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,7 +25,7 @@ class BottomNavBarWidget extends StatelessWidget {
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           elevation: 2,
-          currentIndex: BlocProvider.of<NavigationCubit>(context).index,
+          currentIndex: state,
           onTap: (target) {
             BlocProvider.of<NavigationCubit>(context).changeIndex(target);
           },

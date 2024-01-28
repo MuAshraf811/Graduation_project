@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/constants/colors.dart';
-import 'package:graduation_project/core/router/app_router.dart';
 import 'package:graduation_project/features/home/blocs/cubit/navigation_cubit.dart';
-import 'package:graduation_project/features/home/view/home_view.dart';
 import 'package:graduation_project/features/on_bording/on_bording.dart';
 
 void main() {
@@ -14,9 +12,11 @@ class DocDoc extends StatelessWidget {
   const DocDoc({super.key});
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider( 
+    return MultiBlocProvider(
       providers: [
-        BlocProvider<NavigationCubit>(create: (context) => NavigationCubit(),)
+        BlocProvider<NavigationCubit>(
+          create: (context) => NavigationCubit(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -29,10 +29,10 @@ class DocDoc extends StatelessWidget {
         // onGenerateRoute: (settings) {
         // return  AppRouter.generateRoute(settings);
         // },
-        
+
         home: // const SettingsView(),
             const OnBordingScreen(),
-           // const HomePageView(),
+        // const HomePageView(),
       ),
     );
   }
