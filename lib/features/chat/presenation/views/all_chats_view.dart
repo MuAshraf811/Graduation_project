@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/constants/colors.dart';
-import 'package:graduation_project/core/widgets/text_styles.dart';
 
 import '../../../home/widgets/app_bar_search.dart';
 import '../widgets/single_chat_widget.dart';
