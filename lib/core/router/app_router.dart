@@ -7,8 +7,10 @@ import 'package:graduation_project/features/register/phone_number_view.dart';
 import 'package:graduation_project/features/register/register_view.dart';
 import 'package:graduation_project/features/settings/presentaion/settings_view.dart';
 
+import '../../features/chat/presenation/views/all_chats_view.dart';
+
 class AppRouter {
-static  Route<dynamic> generateRoute(RouteSettings settings) {
+  static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => const HomePageView());
@@ -30,8 +32,11 @@ static  Route<dynamic> generateRoute(RouteSettings settings) {
 
       case '/Register':
         return MaterialPageRoute(builder: (_) => RegisterView());
+
+      case '/mainChat':
+        return MaterialPageRoute(builder: (_) => const MainChatsView() ,)  ;
       default:
-        return  MaterialPageRoute(builder: (_)=> const OnBordingScreen()) ;
+        return MaterialPageRoute(builder: (_) => const HomePageView());
     }
   }
 }
