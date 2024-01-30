@@ -3,12 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/constants/colors.dart';
 import 'package:graduation_project/core/localStorage/shared_preferences_storage.dart';
 import 'package:graduation_project/core/theme/cubits/theme_cubit.dart';
+import 'package:graduation_project/core/theme/theme_holder.dart';
 import 'package:graduation_project/features/home/blocs/cubit/navigation_cubit.dart';
 import 'package:graduation_project/features/on_bording/on_bording.dart';
 
 import 'core/router/app_router.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferencesManager.getSharedPref();
   runApp(const DocDoc());
@@ -37,7 +38,7 @@ class DocDoc extends StatelessWidget {
                     primary: ConstantColors.appMainColor,
                   ),
                 )
-              : ThemeData.dark(),
+              : AppMainTheme.appDarkTheme,
           onGenerateRoute: (settings) {
             return AppRouter.generateRoute(settings);
           },
