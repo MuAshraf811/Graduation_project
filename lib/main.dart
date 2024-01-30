@@ -6,6 +6,8 @@ import 'package:graduation_project/core/theme/cubits/theme_cubit.dart';
 import 'package:graduation_project/core/theme/theme_holder.dart';
 import 'package:graduation_project/features/home/blocs/cubit/navigation_cubit.dart';
 import 'package:graduation_project/features/on_bording/on_bording.dart';
+import 'package:graduation_project/generated/l10n.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'core/router/app_router.dart';
 
@@ -30,6 +32,13 @@ class DocDoc extends StatelessWidget {
       ],
       child: BlocBuilder<ThemeCubit, int>(builder: (context, state) {
         return MaterialApp(
+           localizationsDelegates: const[
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
           debugShowCheckedModeBanner: false,
           theme: SharedPreferencesManager.getIntVal() == 0
               ? ThemeData(
