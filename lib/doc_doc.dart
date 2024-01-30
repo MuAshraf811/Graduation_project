@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:graduation_project/core/localization/cubit/localization_cubit.dart';
 import 'package:graduation_project/features/on_bording/on_bording.dart';
 import 'package:graduation_project/generated/l10n.dart';
 import 'core/constants/colors.dart';
@@ -19,35 +20,43 @@ class DocDoc extends StatelessWidget {
         BlocProvider<NavigationCubit>(
           create: (context) => NavigationCubit(),
         ),
+        BlocProvider<LocalizationCubit>(
+          create: (context) => LocalizationCubit(),
+        ),
         BlocProvider<ThemeCubit>(
           create: (context) => ThemeCubit(),
         ),
       ],
       child: BlocBuilder<ThemeCubit, int>(
         builder: (context, state) {
-          return MaterialApp(
-            localizationsDelegates: const [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
-            debugShowCheckedModeBanner: false,
-            theme: SharedPreferencesManager.getIntVal() == 0
-                ? ThemeData(
-                    primaryColor: ConstantColors.appMainColor,
-                    colorScheme: const ColorScheme.light(
-                      primary: ConstantColors.appMainColor,
-                    ),
-                  )
-                : AppMainTheme.appDarkTheme,
-            onGenerateRoute: (settings) {
-              return AppRouter.generateRoute(settings);
+          return BlocBuilder<LocalizationCubit, int>(
+            builder: (context, state) {
+              return MaterialApp(
+                locale: BlocProvider.of<LocalizationCubit>(context).state==0? const Locale('en'): const Locale('ar'),
+                localizationsDelegates: const [
+                  S.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                supportedLocales: S.delegate.supportedLocales,
+                debugShowCheckedModeBanner: false,
+                theme: SharedPreferencesManager.getIntVal() == 0
+                    ? ThemeData(
+                        primaryColor: ConstantColors.appMainColor,
+                        colorScheme: const ColorScheme.light(
+                          primary: ConstantColors.appMainColor,
+                        ),
+                      )
+                    : AppMainTheme.appDarkTheme,
+                onGenerateRoute: (settings) {
+                  return AppRouter.generateRoute(settings);
+                },
+                home: // const SettingsView(),
+                    const OnBordingScreen(),
+                // const HomePageView(),
+              );
             },
-            home: // const SettingsView(),
-                const OnBordingScreen(),
-            // const HomePageView(),
           );
         },
       ),
