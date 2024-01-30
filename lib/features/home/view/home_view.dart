@@ -18,6 +18,16 @@ class HomePageView extends StatelessWidget {
     CartView(),
     SettingsView()
   ];
+  static String x = '';
+   generateCountryFlag() {
+    String countryCode = 'eg';
+
+    String flag = countryCode.toUpperCase().replaceAllMapped(RegExp(r'[A-Z]'),
+        (match) => String.fromCharCode(match.group(0)!.codeUnitAt(0) + 127397));
+
+    x= flag;
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NavigationCubit, int>(
@@ -50,10 +60,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return const  Column(
       children: [
         SizedBox(height: 48),
         CarouselSliderWidget(),
+        
+        
       ],
     );
   }
