@@ -5,5 +5,6 @@ import 'package:graduation_project/doc_doc.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferencesManager.getSharedPref();
+
   runApp(const DocDoc());
 }

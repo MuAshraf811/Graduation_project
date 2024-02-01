@@ -1,23 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/constants/colors.dart';
+import 'package:graduation_project/core/dummy.dart';
+import '../../../generated/l10n.dart';
 import 'widgets/theme_switch.dart';
 import 'widgets/upper_profile_widget.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
-  static const _listTileTitles = [
-    'Account',
-    'Notifications',
-    'Language',
-    'payment ',
-    'Help & Support',
-    'Rate Us',
-    'LogOut'
-  ];
+
   static const _titlesIcon = [
     Icons.account_box,
     Icons.notifications,
-    Icons.language,
     Icons.money,
     Icons.help_center,
     Icons.star,
@@ -26,7 +19,6 @@ class SettingsView extends StatelessWidget {
   static const _iconsColor = [
     Colors.grey,
     Colors.redAccent,
-    Color.fromARGB(255, 21, 117, 195),
     Colors.green,
     Color.fromARGB(255, 6, 113, 201),
     Color.fromARGB(255, 238, 220, 56),
@@ -34,6 +26,14 @@ class SettingsView extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    final listTileTitles = [
+      S.of(context).account,
+      S.of(context).notifications,
+      S.of(context).payment,
+      S.of(context).support,
+      S.of(context).rate,
+      S.of(context).logOut
+    ];
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -42,9 +42,21 @@ class SettingsView extends StatelessWidget {
             const SizedBox(height: 28),
             const UpperProfileWidget(),
             const SizedBox(height: 14),
-            const SizedBox(
-              height: 30,
-              child: ThemeSwitch(),
+            const Padding(
+              padding: EdgeInsets.only(left: 8.0),
+              child: SizedBox(
+                height: 30,
+                child: ThemeSwitch(),
+              ),
+            ),
+            const SizedBox(height: 16),
+            ListTile(
+              leading: const Icon(
+                Icons.language,
+                color: Colors.blue,
+              ),
+              title: Text(S.of(context).lang),
+              trailing: const LangSwitch(),
             ),
             Expanded(
               child: ListView.builder(
@@ -58,8 +70,6 @@ class SettingsView extends StatelessWidget {
                         case 2:
                         case 3:
                         case 4:
-                        
-                        
                         default:
                       }
                     },
@@ -69,7 +79,7 @@ class SettingsView extends StatelessWidget {
                         color: _iconsColor[index],
                       ),
                       title: Text(
-                        _listTileTitles[index],
+                        listTileTitles[index],
                       ),
                       trailing: const Icon(
                         Icons.arrow_forward_ios,
@@ -78,7 +88,7 @@ class SettingsView extends StatelessWidget {
                     ),
                   );
                 },
-                itemCount: _listTileTitles.length,
+                itemCount: listTileTitles.length,
               ),
             ),
           ],

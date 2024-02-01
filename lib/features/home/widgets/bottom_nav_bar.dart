@@ -3,12 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/features/home/blocs/cubit/navigation_cubit.dart';
 
 import '../../../core/constants/colors.dart';
+import '../../../generated/l10n.dart';
 
 class BottomNavBarWidget extends StatelessWidget {
-  const BottomNavBarWidget({
-    super.key,
-    required this.state
-  });
+  const BottomNavBarWidget({super.key, required this.state});
   final int state;
   @override
   Widget build(BuildContext context) {
@@ -29,22 +27,22 @@ class BottomNavBarWidget extends StatelessWidget {
           onTap: (target) {
             BlocProvider.of<NavigationCubit>(context).changeIndex(target);
           },
-          items: const [
+          items:  [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
+              icon: const Icon(Icons.home),
+              label: S.of(context).home,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Search',
+              icon: const Icon(Icons.search),
+              label: S.of(context).search,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_bag),
-              label: 'cart',
+              icon: const Icon(Icons.shopping_bag),
+              label: S.of(context).cart,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'Settings',
+              icon: const Icon(Icons.settings),
+              label: S.of(context).settings,
             ),
           ],
         ),

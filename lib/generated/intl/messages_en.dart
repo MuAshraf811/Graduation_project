@@ -21,5 +21,27 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account": MessageLookupByLibrary.simpleMessage("Account"),
+        "ar": MessageLookupByLibrary.simpleMessage("Arabic"),
+        "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+        "de": MessageLookupByLibrary.simpleMessage("German"),
+        "en": MessageLookupByLibrary.simpleMessage("English"),
+        "facebook":
+            MessageLookupByLibrary.simpleMessage("Continue with facebook"),
+        "forget": MessageLookupByLibrary.simpleMessage("Forget your password"),
+        "google": MessageLookupByLibrary.simpleMessage("Continue with google"),
+        "hello": MessageLookupByLibrary.simpleMessage("Hello"),
+        "home": MessageLookupByLibrary.simpleMessage("home"),
+        "lang": MessageLookupByLibrary.simpleMessage("Language"),
+        "logOut": MessageLookupByLibrary.simpleMessage("LogOut"),
+        "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+        "payment": MessageLookupByLibrary.simpleMessage("payment"),
+        "rate": MessageLookupByLibrary.simpleMessage("Rate us"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "support": MessageLookupByLibrary.simpleMessage("Support"),
+        "theme": MessageLookupByLibrary.simpleMessage("Dark Theme"),
+        "title": MessageLookupByLibrary.simpleMessage("Title")
+      };
 }
